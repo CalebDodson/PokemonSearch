@@ -10,9 +10,11 @@
   --black: #2b2c34;
   --white: #fffffe;
 }
+html, body {
+  height: auto;
+}
 body {
   background-color: var(--white);
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,25 +22,24 @@ body {
 .app {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: var(--blue);
-  width: 500px;
+  width: calc(100% - 40px);
+  max-width: 500px;
+  min-width: 320px;
   box-shadow: 0 0 5px var(--black);
   border-radius: 3px;
+  margin: 20px 20px;
 }
 .app h1 {
   margin: 0 auto;
   padding: 5px;
+  font-size: 36px;
 }
 .app h2 {
   margin-bottom: 10px;
-}
-.appContainer {
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-self: center;
-  width: 100%;
+  font-size: 30px;
 }
 .header {
   background-color: var(--yellow);
@@ -47,6 +48,9 @@ body {
   text-align: center;
   border-radius: 3px;
   padding: 10px;
+}
+#nowrap {
+  white-space: nowrap;
 }
 #search-input {
   background: none;
@@ -68,17 +72,17 @@ body {
   cursor: pointer;
 }
 .imgContainer {
-  width: 300px;
-  height: auto;
+  width: 66%;
   overflow: hidden;
   margin: 0 auto;
+  aspect-ratio: 1 / 1;
 }
 .pokemonContainer {
   background-color: var(--yellow);
   width: calc(100% - 20px);
   border-radius: 3px;
   padding: 10px;
-  height: 434px;
+  aspect-ratio: 1 / 1;
 }
 #pokemon-name {
   font-size: 32px;
@@ -109,9 +113,18 @@ strong {
   text-align: center;
   border-radius: 3px;
 }
+.statInfoContainer {
+  width: 100%;
+}
+.baseContainer {
+  width: 100%;
+}
+.statsContainer {
+  width: 100%;
+}
 .stat {
   height: 33px;
-  width: 235px;
+  width: 100%;
 }
 .typesContainer {
   display: flex;
@@ -195,4 +208,29 @@ strong {
 #fairy {
   background-color: #EF70EF;
   color: var(--white);
+}
+@media (max-width: 520px) {
+  .app h1 {
+    font-size: 30px;
+  }
+  .app h2 {
+    font-size: 24px;
+  }
+  #pokemon-name {
+    font-size: 24px;
+  }
+  #weight {
+    font-size: 20px;
+  }
+  strong {
+    font-size: 20px;
+  }
+  .box {
+    font-size: 20px;
+  }
+}
+@media (max-width: 373px) {
+  #search-button {
+    margin-top: 10px;
+  }
 }

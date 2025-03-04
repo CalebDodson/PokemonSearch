@@ -58,54 +58,52 @@ function App() {
 
   return (
     <div className="app">
-      <div className="appContainer">
-        <div className="header">
-          <h1>Pokémon Search App</h1>
-          <h2>Search for Pokémon Name or ID:</h2>
-          <div className="searchContainer">
-            <input id="search-input" ref={searchInputRef} autocomplete="off" spellcheck="false" required />
-            <button id="search-button" onClick={getData}>Search</button>
-          </div>
+      <div className="header">
+        <h1>Pokémon Search</h1>
+        <h2>Search for <span id="nowrap">Pokémon Name or ID:</span></h2>
+        <div className="searchContainer">
+          <input id="search-input" ref={searchInputRef} autocomplete="off" spellcheck="false" required />
+          <button id="search-button" onClick={getData}>Search</button>
         </div>
-        <div className="pokemonContainer">
-          {pokemonInfo.name && (
-            <div>
-              <p id="pokemon-name">{pokemonInfo.name} {pokemonInfo.id}</p>
-              <p id="weight">Weight: {pokemonInfo.weight} Height: {pokemonInfo.height}</p>
-              <div className="imgContainer">
-                <img id="pokemon-img" src={pokemonInfo.imgUrl} alt={pokemonInfo.name}></img>
-              </div>
-              <div id="pokemon-types">
-                {pokemonInfo.types.length > 0 && (
-                  <div className="typesContainer">
-                    {pokemonInfo.types.map((type, index) => (
-                      <p key={index} id={type.type.name} className="type">{type.type.name[0].toUpperCase() + type.type.name.slice(1)}</p>
-                    ))}
-                  </div>
-                )}
-              </div>
+      </div>
+      <div className="pokemonContainer">
+        {pokemonInfo.name && (
+          <div>
+            <p id="pokemon-name">{pokemonInfo.name} {pokemonInfo.id}</p>
+            <p id="weight">Weight: {pokemonInfo.weight} Height: {pokemonInfo.height}</p>
+            <div className="imgContainer">
+              <img id="pokemon-img" src={pokemonInfo.imgUrl} alt={pokemonInfo.name}></img>
             </div>
-          )}
+            <div id="pokemon-types">
+              {pokemonInfo.types.length > 0 && (
+                <div className="typesContainer">
+                  {pokemonInfo.types.map((type, index) => (
+                    <p key={index} id={type.type.name} className="type">{type.type.name[0].toUpperCase() + type.type.name.slice(1)}</p>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+      </div>
+      <div className="statInfoContainer">
+        <div className="baseContainer">
+          <p className="box stat"><strong>Base</strong></p>
+          <p className="box stat">HP:</p>
+          <p className="box stat">Attack:</p>
+          <p className="box stat">Defense:</p>
+          <p className="box stat">Sp. Attack:</p>
+          <p className="box stat">Sp. Defense:</p>
+          <p className="box stat">Speed:</p>
         </div>
-        <div className="statInfoContainer">
-          <div className="baseContainer">
-            <p className="box stat"><strong>Base</strong></p>
-            <p className="box stat">HP:</p>
-            <p className="box stat">Attack:</p>
-            <p className="box stat">Defense:</p>
-            <p className="box stat">Sp. Attack:</p>
-            <p className="box stat">Sp. Defense:</p>
-            <p className="box stat">Speed:</p>
-          </div>
-          <div className="statsContainer">
-            <p className="box stat"><strong>Stats</strong></p>
-            <p id="hp" className="box stat">{pokemonInfo.stats.hp}</p>
-            <p id="attack" className="box stat">{pokemonInfo.stats.attack}</p>
-            <p id="defense" className="box stat">{pokemonInfo.stats.defense}</p>
-            <p id="special-attack" className="box stat">{pokemonInfo.stats.spAttack}</p>
-            <p id="special-defense" className="box stat">{pokemonInfo.stats.spDefense}</p>
-            <p id="speed" className="box stat">{pokemonInfo.stats.speed}</p>
-          </div>
+        <div className="statsContainer">
+          <p className="box stat"><strong>Stats</strong></p>
+          <p id="hp" className="box stat">{pokemonInfo.stats.hp}</p>
+          <p id="attack" className="box stat">{pokemonInfo.stats.attack}</p>
+          <p id="defense" className="box stat">{pokemonInfo.stats.defense}</p>
+          <p id="special-attack" className="box stat">{pokemonInfo.stats.spAttack}</p>
+          <p id="special-defense" className="box stat">{pokemonInfo.stats.spDefense}</p>
+          <p id="speed" className="box stat">{pokemonInfo.stats.speed}</p>
         </div>
       </div>
     </div>
